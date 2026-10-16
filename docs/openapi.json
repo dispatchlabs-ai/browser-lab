@@ -368,6 +368,16 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Message required: text is missing, non-string, empty or whitespace-only.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         },
         "requestBody": {
@@ -550,6 +560,9 @@
               {
                 "type": "string",
                 "description": "Existing numeric conversation ID; omit to create."
+              },
+              {
+                "type": "null"
               }
             ]
           }
@@ -583,7 +596,8 @@
           },
           "text": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "pattern": "\\S"
           },
           "requestId": {
             "type": "string",

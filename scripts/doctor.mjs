@@ -19,11 +19,23 @@ try {
     Boolean(selected?.input.includes("image")),
     `${config.model.provider}/${config.model.modelId}`
   )
-  add(
-    "PROVIDER_CREDENTIALS",
-    models.hasConfiguredAuth(config.model.provider),
-    "Credential presence only; no paid model request is made. See docs/quickstart.md."
-  )
+  try {
+    add(
+      "PROVIDER_CREDENTIALS",
+      Boolean(
+        await models.getAuth(config.model.provider, {
+          signal: AbortSignal.timeout(5000),
+        })
+      ),
+      "Credential resolution only; no paid model request is made. An opted-in OAuth login may refresh. See docs/quickstart.md."
+    )
+  } catch {
+    add(
+      "PROVIDER_CREDENTIALS",
+      false,
+      "Could not resolve the selected provider's credential. Check its environment key or opted-in Pi login."
+    )
+  }
   try {
     const manifest = JSON.parse(
       await readFile(join(root, "dist/extension/manifest.json"), "utf8")
