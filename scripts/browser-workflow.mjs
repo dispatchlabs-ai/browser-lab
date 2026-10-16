@@ -29,6 +29,7 @@ const extension = await generateExtension(origin, join(temporary, "extension"))
 const auth = new PairingAuth(state)
 let browser,
   child,
+  childExit,
   logs = "",
   failure
 const fakeSockets = new Set()
@@ -44,7 +45,7 @@ async function until(check, label, timeout = 30_000) {
   const deadline = Date.now() + timeout
   do {
     if (await check()) return
-    if (child?.exitCode !== null && child?.exitCode !== undefined)
+    if (child && (child.exitCode !== null || child.signalCode !== null))
       throw new Error(
         `Server exited while waiting for ${label}: ${logs.slice(-3000)}`
       )
@@ -136,6 +137,13 @@ try {
       VNC_HOST: "127.0.0.1",
       VNC_PORT: String(fakeVnc.address().port),
     },
+  })
+  childExit = new Promise((resolve) => {
+    child.once("exit", resolve)
+    child.once("error", (error) => {
+      logs += error.message
+      resolve()
+    })
   })
   for (const stream of [child.stdout, child.stderr])
     stream.on("data", (bytes) => {
@@ -280,9 +288,9 @@ try {
   await chat.reload()
   await chat.getByText("Chrome extension connected").waitFor()
   if (live)
-    assert.ok(
-      (await chat.locator("body").innerText()).includes(message),
-      "Conversation did not survive reload"
+    await until(
+      async () => (await chat.locator("body").innerText()).includes(message),
+      "persisted conversation after reload"
     )
   await chat.getByRole("button", { name: "Disconnect this browser" }).click()
   await chat.getByRole("heading", { name: "Pair this browser" }).waitFor()
@@ -321,12 +329,12 @@ try {
   failure = error
 } finally {
   await browser?.close().catch(() => {})
-  if (child?.exitCode === null) {
+  if (child && child.exitCode === null && child.signalCode === null) {
     child.kill("SIGTERM")
-    await Promise.race([once(child, "exit"), delay(3000)])
-    if (child.exitCode === null) {
+    await Promise.race([childExit, delay(3000)])
+    if (child.exitCode === null && child.signalCode === null) {
       child.kill("SIGKILL")
-      await once(child, "exit")
+      await Promise.race([childExit, delay(1000)])
     }
   }
   for (const socket of fakeSockets) socket.destroy()
