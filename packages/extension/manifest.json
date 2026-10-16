@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Browser Lab",
+  "version": "0.1.0",
+  "description": "Let the paired Browser Lab chatbot control this Chrome through an explicit site bridge.",
+  "permissions": ["debugger", "tabs"],
+  "background": {
+    "service_worker": "worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://localhost:3210/*"],
+      "js": ["bridge.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_title": "Browser Lab \u2022 connected to the paired chat site"
+  },
+  "version_name": "0.1.0-alpha.1"
+}

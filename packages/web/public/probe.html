@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Browser Lab test pad</title>
+    <style>
+      body {
+        font: 20px system-ui;
+        max-width: 650px;
+        margin: 10vh auto;
+        padding: 24px;
+      }
+      button,
+      input {
+        font: inherit;
+        padding: 14px;
+        border: 1px solid #aaa;
+        border-radius: 10px;
+      }
+      button {
+        cursor: pointer;
+      }
+      output {
+        display: block;
+        margin-top: 24px;
+        padding: 20px;
+        background: #e6f4e9;
+        border-radius: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Browser Lab test pad</h1>
+    <p>This page makes browser actions visible and easy to verify.</p>
+    <label>Message <input id="message" placeholder="Type a message" /></label>
+    <p>
+      <button
+        onclick="
+          document.getElementById('result').textContent =
+            document.getElementById('message').value
+        "
+      >
+        Show message
+      </button>
+    </p>
+    <output id="result">Waiting for a browser action</output>
+  </body>
+</html>

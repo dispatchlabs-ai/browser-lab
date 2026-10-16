@@ -1,0 +1,31 @@
+{
+  "name": "browser-lab",
+  "version": "0.1.0-alpha.1",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=24 <27"
+  },
+  "scripts": {
+    "dev": "node scripts/run.mjs dev",
+    "build": "npm run build --workspace @browser-lab/web",
+    "start": "node scripts/run.mjs start",
+    "configure": "node scripts/configure.mjs",
+    "doctor": "node scripts/doctor.mjs",
+    "pair": "node scripts/pair.mjs",
+    "revoke": "node scripts/pair.mjs --revoke",
+    "check": "npm run typecheck --workspace @browser-lab/web && npm run lint --workspace @browser-lab/web && node scripts/check.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:browser": "node scripts/browser-workflow.mjs",
+    "demo": "node scripts/browser-workflow.mjs --live",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "playwright": "1.64.1",
+    "prettier": "3.9.9"
+  }
+}

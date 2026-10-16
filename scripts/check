@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")/.."
+npm ci --ignore-scripts
+npm run check
+npm test
+npm run build
+npx playwright install chromium
+npm run test:browser
+npm audit --omit=dev --audit-level=high

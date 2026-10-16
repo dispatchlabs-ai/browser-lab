@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Remote desktop · Browser Lab</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        font: 14px system-ui;
+        background: #171717;
+        color: #eee;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      header {
+        padding: 10px 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: #242424;
+      }
+      button,
+      input {
+        font: inherit;
+        border-radius: 6px;
+        border: 1px solid #666;
+        padding: 7px;
+        background: #333;
+        color: #fff;
+      }
+      #screen {
+        flex: 1;
+        min-height: 0;
+      }
+      #status {
+        margin-right: auto;
+      }
+      form {
+        display: flex;
+        gap: 8px;
+      }
+      dialog {
+        background: #242424;
+        color: white;
+        border: 1px solid #555;
+        border-radius: 12px;
+      }
+      dialog form {
+        display: grid;
+        gap: 12px;
+      }
+      small {
+        color: #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <strong>Remote</strong><span id="status">Ready to connect</span
+      ><button id="connect">Connect desktop</button
+      ><button id="disconnect" disabled>Disconnect</button>
+    </header>
+    <p style="margin: 0; padding: 8px 16px; color: #aaa">
+      Keep this tab open and switch to your chat tab while the agent works.
+    </p>
+    <div id="screen"></div>
+    <dialog id="credentials">
+      <form>
+        <strong>Screen Sharing credentials</strong
+        ><input
+          id="username"
+          autocomplete="username"
+          placeholder="VNC username"
+        /><input
+          id="password"
+          type="password"
+          autocomplete="current-password"
+          placeholder="VNC password"
+        /><small
+          >Credentials go to your VNC server and are not saved by Browser Lab.
+          Use an encrypted tunnel for a remote server.</small
+        ><button>Connect</button>
+      </form>
+    </dialog>
+    <script type="module" src="/desktop.js"></script>
+  </body>
+</html>

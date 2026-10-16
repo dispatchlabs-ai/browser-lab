@@ -1,0 +1,7 @@
+{
+  "name": "@browser-lab/extension",
+  "version": "0.1.0-alpha.1",
+  "private": true,
+  "type": "module",
+  "license": "MIT"
+}
