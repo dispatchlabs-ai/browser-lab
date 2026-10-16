@@ -26,6 +26,10 @@ VNC credentials are entered in the viewer and sent through its RFB connection. T
 
 **Stop generating** cancels the run, but cannot undo input already delivered. **Disconnect this browser** revokes its session and terminates its active control sockets. `npm run revoke` invalidates all sessions and pending pairing links; other processes detect revocation within about one second. Remove the extension to eliminate its browser authority. Follow the [cleanup steps](docs/quickstart.md#stop-remove-upgrade) to delete retained data.
 
+## Known development dependency advisory
+
+As of October 16, 2026, the production dependency audit reports zero vulnerabilities. The full audit reports five high-severity entries from one unpatched [braces stack-exhaustion advisory](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm), through the Next.js ESLint development dependency chain. No application request path reaches it, and this repository does not configure attacker-controlled lint glob patterns. Automatic CI runs trusted main-branch source only, not pull requests or forks. This is a documented, nonblocking development-tool risk for this source alpha; reassess it before processing untrusted lint inputs or when an upstream patch becomes available.
+
 ## Reporting
 
 Please report vulnerabilities privately through [GitHub security advisories](https://github.com/dispatchlabs-ai/browser-lab/security/advisories/new). Do not include live credentials or private screenshots. There is no guaranteed response time or independent certification. The [verification record](docs/verification.md) states the scope of the alpha's review and tests.

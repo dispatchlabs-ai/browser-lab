@@ -5,7 +5,7 @@ This is the operational guide for people and coding agents. Contributor instruct
 ## Prerequisites
 
 - macOS or Linux with Node.js **24.x or 26.x**, npm, Git, and network access. Node 25 is accepted by the engine range but is not a qualified runtime.
-- Enough disk space for npm dependencies, the Next.js build, and Chromium. The isolated browser requires its ordinary OS libraries; on Linux, Playwright reports missing packages.
+- A few GB of free disk space for npm dependencies, the Next.js build, Chromium, and temporary downloads. The isolated browser requires its ordinary OS libraries; on Linux, Playwright reports missing packages.
 - For the live demo: an OpenAI API key with access to `gpt-5.4`, supplied as `OPENAI_API_KEY`. API billing is separate from ChatGPT subscriptions. See [OpenAI API authentication](https://platform.openai.com/docs/api-reference/authentication). Provider availability depends on your account.
 - For a manual session: a current desktop Chrome with developer-mode extension installation available. Managed-browser policy may prohibit this.
 
@@ -20,12 +20,12 @@ npm ci --ignore-scripts
 npm run check
 npm test
 npm run build
-npx playwright install chromium
+npx playwright install --no-shell chromium
 ```
 
 These commands use `main`. To reproduce a published release, choose its tag from [Releases](https://github.com/dispatchlabs-ai/browser-lab/releases) and run `git checkout <release-tag>` immediately after cloning. The source alpha's tag is `v0.1.0-alpha.1` once published.
 
-On Linux, install any missing browser system libraries using the package instructions printed by Playwright, or `npx playwright install --with-deps chromium` if you authorize its package-manager changes. Do not silently change a user's system configuration.
+On Linux, install any missing browser system libraries using the package instructions printed by Playwright, or `npx playwright install --with-deps --no-shell chromium` if you authorize its package-manager changes. Do not silently change a user's system configuration.
 
 ## Verify without model credentials
 

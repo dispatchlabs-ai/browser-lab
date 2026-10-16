@@ -9,7 +9,7 @@ npm ci --ignore-scripts
 npm run check
 npm test
 npm run build
-npx playwright install chromium
+npx playwright install --no-shell chromium
 npm run test:browser
 npm audit --omit=dev --audit-level=high
 ```
