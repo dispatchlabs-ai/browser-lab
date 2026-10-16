@@ -44,7 +44,7 @@ The default live demo uses OpenAI's API with GPT-5.4. Other Pi models and provid
 
 The README includes a short prompt for a coding agent and a separate operational guide. The agent can clone the repository, install dependencies, run the checks, run the real model demo, and inspect the saved output. There is also a manual Chrome path.
 
-Testing that prompt was useful in its own right. A fresh Claude session completed the task and found a diagnostic that incorrectly reported a working key as missing. It also noticed that the supposedly isolated demo touched the normal provider-state path. Both were corrected. The [dated verification record](https://github.com/dispatchlabs-ai/browser-lab/blob/main/docs/verification.md) records the fresh-agent runs, operating systems, models, review scope, and limitations.
+Testing that prompt was useful in its own right. A fresh Claude session completed the task and found a diagnostic that incorrectly reported a working key as missing. It also noticed that the supposedly isolated demo touched the normal provider-state path. Both were corrected. Fresh Codex onboarding also completed the demo, after preserving one timed-out model run and retrying in a new isolated session. The [dated verification record](https://github.com/dispatchlabs-ai/browser-lab/blob/main/docs/verification.md) records the fresh-agent runs, operating systems, models, review scope, and limitations.
 
 ## Authority is part of the interface
 
