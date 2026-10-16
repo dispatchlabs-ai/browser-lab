@@ -6,7 +6,7 @@ A small experiment: chat with a Pi Durable agent that controls browser tabs thro
 
 The first task is deliberately recognizable: the agent opens the included test page, types **Hello from Browser Lab**, clicks **Show message**, and checks the result. No VNC server or second computer is needed.
 
-![The real GPT-5.4 browser demo showing Hello from Browser Lab in the test page's output](docs/assets/browser-result.png)
+![Browser Lab chat showing a connected Chrome extension, browser tool activity, and the verified result](docs/assets/browser-chat.png)
 
 ## Use it with your AI agent
 

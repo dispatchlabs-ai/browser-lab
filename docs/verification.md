@@ -29,4 +29,4 @@ Repository-owned `./scripts/check` runs credential-free CI on maintainer-owned L
 
 Linux native desktop, Windows, other providers, public Internet hosting and multi-user operation are unqualified. The public native-desktop recheck used isolated Chromium; the earlier private prototype also verified an installed Chrome session with a hidden noVNC viewer and `58 × 17 = 986`. That earlier result is historical evidence, not a clean-clone qualification of this release.
 
-Browser test artifacts are generated locally under ignored `.artifacts/`. The repository includes only the synthetic browser-result image. Private desktop screenshots, authentication material and raw transcripts remain outside public source.
+Browser test artifacts are generated locally under ignored `.artifacts/`. The repository includes only screenshots from the synthetic browser demo. Private desktop screenshots, authentication material and raw transcripts remain outside public source.
