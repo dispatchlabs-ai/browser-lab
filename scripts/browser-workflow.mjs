@@ -131,7 +131,10 @@ try {
       PORT: String(port),
       APP_ORIGIN: origin,
       STATE_DIR: state,
-      PI_AUTH: live ? config.authPath : join(state, "provider-auth.json"),
+      PI_AUTH:
+        live && process.env.PI_AUTH
+          ? config.authPath
+          : join(state, "provider-auth.json"),
       MODEL_PROVIDER: live ? config.model.provider : "openai",
       MODEL_ID: live ? config.model.modelId : "gpt-5.4",
       VNC_HOST: "127.0.0.1",

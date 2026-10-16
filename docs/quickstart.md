@@ -48,7 +48,7 @@ npm run demo -- --headed
 
 The model opens a new tab, observes the included test page, types the message, clicks the button, and observes the result. Expected: `workflow: "live-model"`, `ok: true`, and the same exact message. Inspect `.artifacts/demo/result.png`, `chat.png`, and `result.json`. A successful result also confirms that chat history survives a reload. The command closes the temporary browser when finished.
 
-The workflow uses a temporary localhost port and state directory, regardless of a remote `APP_ORIGIN` in your normal configuration. It uses your selected model and provider credentials. It does not enable a real VNC connection. It has bounded waits and reports failure instead of claiming success when the model does not complete the task.
+The workflow uses a temporary localhost port and state directory, regardless of a remote `APP_ORIGIN` in your normal configuration. It uses your selected model and environment credentials. It reads an existing Pi login file only when you explicitly set `PI_AUTH`; an opted-in OAuth login may refresh that file. Otherwise its provider store is temporary too. It does not enable a real VNC connection. It has bounded waits and reports failure instead of claiming success when the model does not complete the task.
 
 Coding agents should report which checks passed, the actual model and platform, the visible result, and any unresolved setup. Missing credentials are a request for a private credential route, not permission to search unrelated accounts or change providers silently. Do not claim that the live demo ran when only the smoke check passed.
 
@@ -95,7 +95,7 @@ For an existing Pi login, set `PI_AUTH` to its absolute credential-file path and
 
 ## Diagnose and recover
 
-`npm run doctor -- --json` checks configuration, model vision support, credential presence, generated extension origin, and build presence. Add `--live` to check server health. It makes no paid request and cannot prove that a key is accepted or an extension is installed.
+`npm run doctor -- --json` checks configuration, model vision support, credential resolution, generated extension origin, and build presence. Add `--live` to check server health. It makes no paid request and cannot prove that a key is accepted or an extension is installed. Resolving an opted-in OAuth login may refresh its credential file.
 
 | Symptom                                   | Action                                                                                        |
 | ----------------------------------------- | --------------------------------------------------------------------------------------------- |
