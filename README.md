@@ -2,7 +2,7 @@
 
 A small experiment: chat with a Pi Durable agent that controls browser tabs through a Chrome extension—and, optionally, a desktop through a background noVNC tab.
 
-**Source alpha · MIT · macOS and Linux browser workflow · Node.js 24 or 26**
+**Source alpha · MIT · macOS and Linux browser workflow · Node.js 24.22.1+ or 26.12.1+**
 
 The first task is deliberately recognizable: the agent opens the included test page, types **Hello from Browser Lab**, clicks **Show message**, and checks the result. No VNC server or second computer is needed.
 

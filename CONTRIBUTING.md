@@ -2,7 +2,7 @@
 
 Browser Lab is a small, maintainer-led source alpha. Chris Reynolds is the initial maintainer. Issues and focused pull requests are welcome; contributions are under MIT with no CLA or copyright assignment.
 
-Read the [quickstart](docs/quickstart.md), [architecture](docs/architecture.md), and the relevant package README. Use Node.js 24 or 26 and the root npm workspace. Keep one lockfile. A shared protocol package is unnecessary until an independently useful consumer needs one.
+Read the [quickstart](docs/quickstart.md), [architecture](docs/architecture.md), and the relevant package README. Use Node.js 24.22.1+ or 26.12.1+ and the root npm workspace. Keep one lockfile. A shared protocol package is unnecessary until an independently useful consumer needs one.
 
 ```sh
 npm ci --ignore-scripts

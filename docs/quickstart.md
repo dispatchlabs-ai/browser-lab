@@ -4,7 +4,7 @@ This is the operational guide for people and coding agents. Contributor instruct
 
 ## Prerequisites
 
-- macOS or Linux with Node.js **24.x or 26.x**, npm, Git, and network access. Node 25 is accepted by the engine range but is not a qualified runtime.
+- macOS or Linux with Node.js **24.22.1+ or 26.12.1+** within those major versions, npm, Git, and network access. Earlier patch versions and end-of-life Node 25 are unsupported.
 - A few GB of free disk space for npm dependencies, the Next.js build, Chromium, and temporary downloads. The isolated browser requires its ordinary OS libraries; on Linux, Playwright reports missing packages.
 - For the live demo: an OpenAI API key with access to `gpt-5.4`, supplied as `OPENAI_API_KEY`. API billing is separate from ChatGPT subscriptions. See [OpenAI API authentication](https://platform.openai.com/docs/api-reference/authentication). Provider availability depends on your account.
 - For a manual session: a current desktop Chrome with developer-mode extension installation available. Managed-browser policy may prohibit this.
