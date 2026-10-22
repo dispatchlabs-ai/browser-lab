@@ -1,5 +1,20 @@
 # Alpha verification
 
+## Runtime security update — October 22, 2026
+
+Version `0.1.0-alpha.2` requires Node.js 24.22.1+ or 26.12.1+ within those major
+versions after the October 21 Node security release. Earlier patch versions and
+end-of-life Node 25 are unsupported. The source distribution does not install or
+bundle Node; update the host runtime before starting the application.
+
+On macOS arm64 with Node 24.22.1, the complete credential-free `scripts/check`
+passed: installation, type/lint/syntax checks, six unit checks, production build,
+real Chromium extension workflow, authorization/revocation checks and production
+audit. Chromium 156.0.8078.4 displayed “Hello from Browser Lab” in the synthetic
+page. No model or native-desktop requalification is claimed for this update.
+
+## Initial source alpha — October 16, 2026
+
 Verified on October 16, 2026. This source alpha qualifies the small workflows below. It does not establish broad desktop reliability, unattended safety, or compatibility with every coding agent or Pi provider.
 
 | Workflow                                       | Evidence                                                                                                                                                                                                                                                                                                                 |

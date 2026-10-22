@@ -23,7 +23,7 @@ npm run build
 npx playwright install --no-shell chromium
 ```
 
-These commands use `main`. To reproduce a published release, choose its tag from [Releases](https://github.com/dispatchlabs-ai/browser-lab/releases) and run `git checkout <release-tag>` immediately after cloning. The source alpha's tag is `v0.1.0-alpha.1`.
+These commands use `main`. To reproduce a published release, choose its tag from [Releases](https://github.com/dispatchlabs-ai/browser-lab/releases) and run `git checkout <release-tag>` immediately after cloning. The source alpha's tag is `v0.1.0-alpha.2`.
 
 On Linux, install any missing browser system libraries using the package instructions printed by Playwright, or `npx playwright install --with-deps --no-shell chromium` if you authorize its package-manager changes. Do not silently change a user's system configuration.
 

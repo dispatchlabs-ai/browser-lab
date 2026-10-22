@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Browser Lab alpha HTTP interface",
-    "version": "0.1.0-alpha.1",
+    "version": "0.1.0-alpha.2",
     "description": "Single-owner shipped UI interface. Host must match APP_ORIGIN. JSON bodies are limited to 64 KiB. Browser actions use the authenticated WebSocket bridge documented in architecture.md. This contract is not stable across alpha versions."
   },
   "servers": [

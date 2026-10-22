@@ -196,7 +196,7 @@ const server = createServer(async (req, res) => {
       return json(res, 200, {
         ok: true,
         service: "browser-lab",
-        version: "0.1.0-alpha.1",
+        version: "0.1.0-alpha.2",
       })
     if (url.pathname === "/api/status") {
       const token = await auth.authorized(req)
